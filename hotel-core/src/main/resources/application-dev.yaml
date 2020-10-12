@@ -1,0 +1,75 @@
+spring:
+  # MySQL
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jzt_hotel?&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password:
+
+  # REDIS (RedisProperties)
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    pool:
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-active: 100
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 连接池中的最大空闲连接
+      max-idle: 10
+      # 连接池中的最小空闲连接
+      min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 0
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+aliyun:
+  asc:
+    access-key-id: LTAIhT8Jg7FlECCS
+    access-key-secret: WW7AHU6cmMMaqbkjxVZk4Bvs72MetE
+  open-search:
+    access-key-id: LTAI8GzwGGb8eAX1
+    access-key-secret: q4ENShhuEZZtx90yb7EXczQiKoOpi0
+    host: http://opensearch-cn-hangzhou.aliyuncs.com
+    app-name: jiuZheKeJi
+    table-name: hotel_sku
+  oss:
+    access-key-id: LTAI8GzwGGb8eAX1
+    access-key-secret: q4ENShhuEZZtx90yb7EXczQiKoOpi0
+    end-point: oss-cn-hangzhou.aliyuncs.com
+    bucketName:
+  mns:
+    access-key-id: LTAIRyUPzUHWE3aQ
+    access-key-secret: 6AItvovD7Pz8cBeFTJdufKE0A89abt
+    end-point: http://1318720335258170.mns.cn-hangzhou.aliyuncs.com/
+    queue-name: dev-jzt-hotel-db-log
+
+rabbitmq:
+  address: localhost:5672
+  username: guest
+  password: guest
+  virtualHost: hotel
+  exchange:
+    default: amq.direct
+  queue:
+    delay15min: delay.15min
+
+maxreservationday: 38
+
+#logging:
+#  file: log/hotel.log
+#  level:
+#    root: WARN
+#    com.jiuzhe.app.hotel: DEBUG

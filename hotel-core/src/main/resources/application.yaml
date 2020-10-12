@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: jzt-hotel-core
+
+server:
+  port: 9101
+
+mybatis:
+  type-aliases-package: com.jiuzhe.app.hotel.entity
+
+hotel:
+  order:
+    paied:
+      expired-time: 15
+      cancel-time : 120
+    user:
+      max-num: 2
+
+pagehelper:
+  auto-dialect: true
+  close-conn: true
